@@ -1,8 +1,7 @@
-
 {
 "isEnable":55,
-"version":"v1.2.2",
-"info":"请更新版本【v1.2.2】:\n\t* 修复多线程报错；优化运行时间\n1.公众号 TopStyle\n2.TG频道 https://t.me/TopStyle2021 \n下载链接:\nWindows版：https://github.com/curtinlv/JD-Script/releases/download/OpenCard-v1.2.2/JDOpenCard-ForWin-v1.2.2.zip\nMacOS版：https://github.com/curtinlv/JD-Script/releases/download/OpenCard-v1.2.2/JDOpenCard-forMac-v1.2.2.zip\n源码下载（手机用户）：https://github.com/curtinlv/JD-Script/releases/download/OpenCard-v1.2.2/JDOpenCardSrc-v1.2.2.zip",
+"version":"v1.3.1",
+"info":"请更新版本【v1.3.1】:\n\t* 修复cookie检测接口；增加cookie检测开关\n1.公众号 TopStyle\n2.TG频道 https://t.me/TopStyle2021 \nGitHub仓库 https://github.com/curtinlv/JD-Script/tree/main/OpenCard",
 "readme1":"",
 "readme2":"",
 "readme3":"\n[Info]: \n目前每天07:30和14:30 更新远程shopid，08,15点后跑一次即可。有问题请到群反馈讨论：\nTG群：https://t.me/topstyle996",
