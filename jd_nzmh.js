@@ -88,7 +88,7 @@ function showMsg() {
   return new Promise(resolve => {
     if ($.beans) {
       message += `本次运行获得${$.beans}京豆`
-      allMessage += `京东账号${$.index}${$.nickName}获得${$.beans}京豆\n`
+      allMessage += `京东账号${$.index}-${$.nickName}：   获得【${$.beans}】京豆\n`
       $.msg($.name, '', `京东账号${$.index}${$.nickName}\n${message}`);
     }
     resolve()
