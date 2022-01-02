@@ -38,11 +38,11 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', {"open-url": "https://bean.m.jd.com/bean/signIndex.action"});
     return;
   }
-  let res = await getAuthorShareCode('http://adguard.ipq.co/jd_red.json')
+  let res = await getAuthorShareCode('https://raw.githubusercontent.com/msechen/shareCodes/main/jd_red.json')
   if (!res) {
-    $.http.get({url: 'http://adguard.ipq.co/jd_red.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
+    $.http.get({url: 'https://raw.githubusercontent.com/msechen/shareCodes/main/jd_red.json'}).then((resp) => {}).catch((e) => $.log('刷新CDN异常', e));
     await $.wait(1000)
-    res = await getAuthorShareCode('http://adguard.ipq.co/jd_red.json')
+    res = await getAuthorShareCode('https://raw.githubusercontent.com/msechen/shareCodes/main/jd_red.json')
   }
   $.authorMyShareIds = [...(res || [])];
   for (let i = 0; i < cookiesArr.length; i++) {
@@ -112,9 +112,9 @@ const JD_API_HOST = 'https://api.m.jd.com/api';
 
 async function redPacket() {
   try {
-    //await doLuckDrawFun();//券后9.9抽奖
-    //await taskHomePage();//查询任务列表
-    //await doTask();//领取任务，做任务，领取红包奖励
+    await doLuckDrawFun();//券后9.9抽奖
+    await taskHomePage();//查询任务列表
+    await doTask();//领取任务，做任务，领取红包奖励
     await h5activityIndex();//查询红包基础信息
     await red();//红包任务(发起助力红包,领取助力红包等)
     await h5activityIndex();
@@ -252,7 +252,6 @@ async function red() {
     //20001:红包活动正在进行，可拆
     const redPacketId = $.h5activityIndex.data.result.redpacketInfo.id;
     if (redPacketId) $.redPacketId.push(redPacketId);
-    if (redPacketId) submitCode(redPacketId);
     console.log(`\n\n当前待拆红包ID:${$.h5activityIndex.data.result.redpacketInfo.id}，进度：再邀${$.h5activityIndex.data.result.redpacketConfigFillRewardInfo[$.hasSendNumber].requireAssistNum - $.h5activityIndex.data.result.redpacketConfigFillRewardInfo[$.hasSendNumber].hasAssistNum}个好友，开第${$.hasSendNumber + 1}个红包。当前已拆红包：${$.hasSendNumber}个，剩余${$.h5activityIndex.data.result.remainRedpacketNumber}个红包待开，已有${$.assistants}好友助力\n\n`)
     console.log(`当前可拆红包个数：${$.waitOpenTimes}`)
     if ($.waitOpenTimes > 0) {
@@ -287,7 +286,7 @@ function taskHomePage() {
 //领取任务API,需token
 function startTask(taskType) {
   // 从taskHomePage返回的数据里面拿taskType
-  let data = {taskType};
+  let data = {"isjdapp":1,"random":"33235811","log":"4817e3a2~8,~1wsv3ig","sceneid":"JLHBhPageh5", taskType};
   data['token'] = $.md5($.md5("j" + JSON.stringify(data) + "D"))
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), data), (err, resp, data) => {
@@ -332,7 +331,7 @@ async function active(taskType) {
 
 //获取具体任务详情API
 function getTaskDetailForColor(taskType) {
-  const data = {"clientInfo":{}, taskType};
+  const data = {"isjdapp":1,"random":"33235811","log":"4817e3a2~8,~1wsv3ig","sceneid":"JLHBhPageh5", taskType};
   return new Promise((resolve) => {
     $.post(taskUrl(arguments.callee.name.toString(), data), (err, resp, data) => {
       try {
@@ -376,7 +375,7 @@ function taskReportForColor(taskType, detailId) {
 }
 //领取做完任务后的红包
 function receiveTaskRedpacket(taskType) {
-  const body = {"clientInfo":{}, taskType};
+  const body = {"isjdapp":1,"random":"33235811","log":"4817e3a2~8,~1wsv3ig","sceneid":"JLHBhPageh5", taskType};
   return new Promise((resolve) => {
     $.post(taskUrl('h5receiveRedpacketAll', body), (err, resp, data) => {
       try {
@@ -401,7 +400,7 @@ function receiveTaskRedpacket(taskType) {
 //助力API
 function jinli_h5assist(redPacketId) {
   //一个人一天只能助力两次，助力码redPacketId 每天都变
-  const body = {"redPacketId":redPacketId,"followShop":0,"random":"56589911","log":"1635956140883~1~8,1~81BE9EF0A1C27ADB226049DF9C26D3989C48A944~115flmu~C~ThFCXBZZbW0bQ0JeWRMOahRWDB1UAhlwbh0FWwUcVk1CEhgTUAYbBAkcIWoZAg94GAIaRBU8GhJTQ1oTDAMVEhFBFwkUAAJQAwkCVwcDDQMABA4BCwJAHhdEU1UWWRREQxVCRFJEUhMaEE5VAxAPEVBXQBdCREIAFBwWQVBfFAhiBk4HDQEaAAVPBwAbUBpeQV1YbBoQU1pACAQfFFJHQQwSVFYCCVBTAwQEVggGVFRXB1UEBwBTVgBUDlJXCAUIDwUbHEBcRREME10zXl9ZBBQcFkUWCwcECgVbBwMCAgEMWwUcFQtdEg4TAQcBVg8FVgRQCwcDA1FUAwRSBwlWAgMHDwoIAgMHBgMPUgZXAgZTUhQcFldEUxQIGwBaAwFXBldVVFQEDlYFVQxTBVMBBg0AWwIEA1BVAFtXVQ5RA1JSBgADBFYOAAFUA1EDUwABDlMDVVQSGBNaRxQIG3ESQllWFnJbDkZFQwREHBR4WlIYEBUSDFNDEQwTBVUBCAFSFBwWQldDFAhiBlQFGQABBGlPFEJYQwxrFlhkWVlcXAhOAxcfFFh7MBQcFVAEHgYTGBMHAhcCTAAXHxQAAlQOBgRDGhIBBwNVAAcNBgcKBAEBA1ZQBQMGWFQDAwcNCQcAWAVRAgxQBAUAVVIDFU0UURZsGBNfXVgSWBBTVVBXUgVCRBVNFFFeEw4TQxAVEgFbFwkURgdNBB4DQxoSV1drRxQIGwBTEBkRVFUWWRRCVg9SX1kMAQcDCgAJUwMXHxRcXkEMawZNBhwEbBgTVF5WV0AIFwIAAgFaAwYGUg4DBAZKAHljUmIpBE14D3h5J3BjYApkSVFldUl4cwQNTGsHSwVjBCFYUgQremNZf0BSQUpyc1BFTHReAQQod2Z1I09iBmFYBGJUVENUYHRXXHtwIld9XwpfdE5VZGF0WQpyCHdQflhkXypkcQ8jYFtefGNJRHRoRw5+XH5nd2UmQ31jWQFqWV1Gdl5BDHYVCk9icXwGJVx9GCR1Qwd+ZmRHd3pTE31fUEBwdhRhYHAOHWEEQk5oX1pdfjZRdHVyYH05ckRBI2NiQnt1DAscXQUDUAEHD1RKGhoBSR9IckpiXH9iZUF1LndZXHd2UyZleGUnZXdTWmBmZHNfdVNKdHZ3WmAmXmVlMHR1f3RDQnVxeGE2endxZ2cGVnF1dgpicXVWZnZ0dHp1FVlhdF4JYDRjcWUiTn11eVN8dHN4WzB1d3VkdEMIYndcVQtOBFoEBkxVVhJOEFhAURMOQRRN~0s79bv8","sceneid":"JLHBhPageh5"};
+  const body = {"redPacketId":redPacketId,"followShop":0,"random":"56589911","log":`${Date.now()}~4817e3a2~8,~1wsv3ig`,"sceneid":"JLHBhPageh5"};
   const options = taskUrl(arguments.callee.name.toString(), body)
   return new Promise((resolve) => {
     $.post(options, (err, resp, data) => {
@@ -431,7 +430,8 @@ function jinli_h5assist(redPacketId) {
 }
 //领取红包API
 function h5receiveRedpacketAll() {
-  const options = taskUrl(arguments.callee.name.toString(), {"clientInfo":{}})
+  const body = {"isjdapp":1,"random":"33235811","log":"4817e3a2~8,~1wsv3ig","sceneid":"JLHBhPageh5"};
+  const options = taskUrl(arguments.callee.name.toString(), body)
   return new Promise((resolve) => {
     $.post(options, (err, resp, data) => {
       try {
@@ -470,7 +470,6 @@ function h5launch() {
             if (data.data.result.redPacketId) {
               console.log(`\n\n发起助力红包 成功：红包ID ${data.data.result.redPacketId}`)
               $.redPacketId.push(data.data.result.redPacketId);
-              submitCode(data.data.result.redPacketId);  
             } else {
               console.log(`\n\n发起助力红包 失败：${data.data.result.statusDesc}`)
             }
@@ -584,38 +583,6 @@ function getCcTaskList(functionId, body, type = '1') {
     })
   })
 }
-
-function submitCode(shareCode) {
-    if (!shareCode || shareCode == undefined || shareCode.length<=0 ) {return;}
-    return new Promise(async resolve => {
-    $.get({url: `http://www.helpu.cf/jdcodes/submit.php?code=${shareCode}&type=koi&user=${$.UserName}`, timeout: 10000}, (err, resp, data) => {
-      try {
-        if (err) {
-          console.log(`${JSON.stringify(err)}`)
-          console.log(`${$.name} 提交助力码 API请求失败，请检查网路重试`)
-        } else {
-          if (data) {
-            //console.log(`随机取个${randomCount}码放到您固定的互助码后面(不影响已有固定互助)`)
-            data = JSON.parse(data);
-            if (data.code === 300) {
-                $.needSubmit = false;
-              console.log("锦鲤红包，互助码已提交");
-            }else if (data.code === 200) {
-                $.needSubmit = false;
-              console.log("锦鲤红包，互助码提交成功");
-            }
-          }
-        }
-      } catch (e) {
-        $.logErr(e, resp)
-      } finally {
-        resolve(data || {"code":500});
-      }
-    })
-    await $.wait(10000);
-    resolve({"code":500})
-  })
-}
 function getAuthorShareCode(url) {
   return new Promise(resolve => {
     const options = {
@@ -652,7 +619,7 @@ function getAuthorShareCode(url) {
 
 function taskUrl(functionId, body = {}) {
   return {
-    url: `${JD_API_HOST}?appid=jinlihongbao&functionId=${functionId}&loginType=2&client=jinlihongbao&clientVersion=10.1.0&osVersion=iOS&d_brand=iPhone&d_model=iPhone&t=${new Date().getTime() * 1000}`,
+    url: `${JD_API_HOST}?appid=jinlihongbao&functionId=${functionId}&loginType=2&client=jinlihongbao&clientVersion=10.2.6&osVersion=iOS&d_brand=iPhone&d_model=iPhone&t=${new Date().getTime() * 1000}`,
     body: `body=${escape(JSON.stringify(body))}`,
     headers: {
       "Host": "api.m.jd.com",
