@@ -80,6 +80,8 @@ async function jdsign() {
     await getInfo("https://prodev.m.jd.com/mall/active/3MFSkPGCDZrP2WPKBRZdiKm9AZ7D/index.html");//京东超市
     await $.wait(1000)
     await getInfo("https://prodev.m.jd.com/mall/active/4Vh5ybVr98nfJgros5GwvXbmTUpg/index.html");//小程序签到
+    await $.wait(1000)
+    await getInfo("https://prodev.m.jd.com/mall/active/whyxjHX23eNgT6Xvej19JnamfEH/index.html");//签到1.14结束
 //     await $.wait(1000)
 //     await getInfo("https://pro.m.jd.com/mall/active/3joSPpr7RgdHMbcuqoRQ8HbcPo9U/index.html");//生活特权签到
   } catch (e) {
