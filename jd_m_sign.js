@@ -79,7 +79,7 @@ async function jdsign() {
     await $.wait(1000)
     await getInfo("https://prodev.m.jd.com/mall/active/3MFSkPGCDZrP2WPKBRZdiKm9AZ7D/index.html");//京东超市
     await $.wait(1000)
-//     await getInfo("https://pro.m.jd.com/mall/active/ZrH7gGAcEkY2gH8wXqyAPoQgk6t/index.html");//箱包签到
+    await getInfo("https://prodev.m.jd.com/mall/active/4Vh5ybVr98nfJgros5GwvXbmTUpg/index.html");//小程序签到
 //     await $.wait(1000)
 //     await getInfo("https://pro.m.jd.com/mall/active/3joSPpr7RgdHMbcuqoRQ8HbcPo9U/index.html");//生活特权签到
   } catch (e) {
