@@ -1,8 +1,8 @@
 {
 	"name":"JD关注有礼",
     "isEnable":54,
-    "version":"v1.0.0 Beta",
-    "info":"",
+    "version":"v1.1.1",
+    "info":"更新脚本：https://raw.githubusercontent.com/curtinlv/JD-Script/main/jd_getFollowGift.py",
     "readme":"仅交流学习为主，有问题请反馈渠道:\n\t1.公众号 TopStyle\n\t2.TG频道 https://t.me/TopStyle2021 \n\t3.TG群 https://t.me/topstyle996",
     "m":"!!! ",
     "s":5,
