@@ -1,1 +1,0 @@
-{'shopid': '10139289', 'venderId': '10269840', 'activityId': '10707401', 'signbody': 'sign=c016a89b0090de6f69a9fd9ae6c4ae06&st=1641786013292&sv=121', 'openudid': 'DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK=='}
