@@ -2,7 +2,7 @@ const $ = new Env("会员狂欢日");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = '', message = '';
-let ownCode = {};
+let ownCode = null;
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
@@ -202,7 +202,7 @@ function task(function_id, body, isCommon = 0) {
                                         $.log(`开启【${data.data.activityName}】活动`)
                                         $.log("-------------------")
                                         if ($.index === 1) {
-                                            ownCode['actorUuid'] = data.data.actorUuid
+                                            ownCode = data.data.actorUuid
                                             console.log(ownCode)
                                         }
                                         $.activityContent = data.data;
