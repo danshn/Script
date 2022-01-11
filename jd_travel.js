@@ -123,6 +123,7 @@ const pkTeamNum = () => Math.ceil(cookiesArr.length / 30)
         if (!$.isLogin) continue
         $.UA = s.UA
         $.ZooFaker = require('./utils/ZooFaker_Necklace.js').utils()
+        $.ZooFaker = utils()
         $.joyytoken = s.joyytoken
         $.blog_joyytoken = s.blog_joyytoken
         $.shshshfpb = s.shshshfpb
