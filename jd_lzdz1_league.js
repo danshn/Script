@@ -106,7 +106,7 @@ async function superFans() {
                 } else {
                     $.log("已经关注过了\n")
                     await $.wait(2000);
-                    return
+                    // return
                 }
                 $.log("\n加入店铺会员");
                 if ($.openCardStatus) {
