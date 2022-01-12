@@ -1,6 +1,8 @@
 /*
 TG https://t.me/duckjobs
 https://lzkj-isv.isvjcloud.com/lzclient/12345/cjwx/common/entry.html?activityId=xxxx
+
+7 7 7 7 * jd_lzclient.js
 */
 const $ = new Env('超级无线店铺抽奖');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';

@@ -3,6 +3,9 @@
 TG https://t.me/ducktalk
 看脸活动
 https://lzkj-isv.isvjcloud.com//activity/xxx?activityId=xxx
+
+7 7 7 7 * jd_wxShopFollowActivity.js
+
 */
 const $ = new Env('关注店铺抽奖');
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
