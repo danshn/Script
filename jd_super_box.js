@@ -60,10 +60,10 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }
             console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
-            console.log(`\n入口：app主页搜超级盒子\n`);
             await main()
         }
     };
+
     $.shareCoseList = [...new Set([...$.shareCoseList,'QmLpaFXm34BaWgn3C3O2WA','ffn_Yc--WKEab2iPzmVB4BM3VKR8-0h7mdYsY627fC0'])]
     //去助力与开箱
     for (let i = 0; i < cookiesArr.length; i++) {
@@ -86,6 +86,7 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
             }
         }
     }
+
     for (let i = 0; i < cookiesArr.length; i++) {
         cookie = cookiesArr[i];
         if (cookie) {
@@ -98,11 +99,12 @@ const JD_API_HOST = `https://api.m.jd.com/client.action`;
                 continue
             }            
             //开箱
-            console.log(`京东账号${$.index}去开箱`)
+            console.log(`\n\n京东账号${$.index}去开箱`)
+            console.log(`可以开箱${$.lotteryNumber}次`)
             for (let y = 0; y < $.lotteryNumber; y++) {
-                console.log(`可以开箱${$.lotteryNumber}次 ==>>第${y+1}次开箱`)
+                console.log(`第${y+1}次开箱`)
                 await openBox({ "linkId": "Ll3Qb2mhCXSEWxruhv8qIw", "encryptPin": "" });
-                await $.wait(1000);
+                await $.wait(8000);
             }
         }
     }
@@ -148,7 +150,8 @@ function superboxSupBoxHomePage(body) {
                     console.log(`${JSON.stringify(err)}`)
                     console.log(`${$.name} superboxSupBoxHomePage API请求失败，请检查网路重试`)
                 } else {
-                    data = JSON.parse(data);
+                   if (safeGet(data)) {
+                                   data = JSON.parse(data);
                     if (data.code === 0) {
                         $.encryptPin = data.data.encryptPin;
                         $.shareCoseList.push($.encryptPin)
@@ -156,6 +159,9 @@ function superboxSupBoxHomePage(body) {
                     } else {
                         console.log(`superboxSupBoxHomePage：${JSON.stringify(data)}\n`);
                     }
+                  } else {
+                   console.log(data);
+                  }
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -176,6 +182,7 @@ function apTaskList(body) {
                     console.log(`${JSON.stringify(err)}`)
                     console.log(`${$.name} apTaskList API请求失败，请检查网路重试`)
                 } else {
+                   if (safeGet(data)) {
                     data = JSON.parse(data);
                     if (data.code === 0) {
                         $.allList = data.data
@@ -183,6 +190,9 @@ function apTaskList(body) {
                     } else {
                         console.log(`apTaskList错误：${JSON.stringify(data)}\n`);
                     }
+                  } else {
+                   console.log(data);
+                  }
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -202,6 +212,7 @@ function apTaskDetail(body) {
                     console.log(`${JSON.stringify(err)}`)
                     console.log(`${$.name} apTaskDetail API请求失败，请检查网路重试`)
                 } else {
+                   if (safeGet(data)) {
                     data = JSON.parse(data);
                     if (data.code === 0) {
                         $.doList = data.data
@@ -209,6 +220,9 @@ function apTaskDetail(body) {
                     } else {
                         console.log(`apTaskDetail错误：${JSON.stringify(data)}\n`);
                     }
+                  } else {
+                   console.log(data);
+                  }
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -228,6 +242,7 @@ function apDoTask(body) {
                     console.log(`${JSON.stringify(err)}`)
                     console.log(`${$.name} apDoTask API请求失败，请检查网路重试`)
                 } else {
+                   if (safeGet(data)) {
                     data = JSON.parse(data);
                     //console.log(JSON.stringify(data));
                     if (data.success === true && data.code === 0) {
@@ -235,6 +250,9 @@ function apDoTask(body) {
                     } else if (data.success === false && data.code === 2005) {
                         console.log(`${data.data.errMsg}${data.data.userFinishedTimes}次`)
                     }
+                  } else {
+                   console.log(data);
+                  }
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -254,6 +272,7 @@ function helpShare(body) {
                     console.log(`${JSON.stringify(err)}`)
                     console.log(`${$.name} superboxSupBoxHomePage API请求失败，请检查网路重试`)
                 } else {
+                   if (safeGet(data)) {
                     data = JSON.parse(data);
                     //console.log(JSON.stringify(data));
                     if (data.success === true && data.code === 0) {
@@ -261,6 +280,9 @@ function helpShare(body) {
                     } else {
                         console.log(`助力失败：${JSON.stringify(data)}\n\n`)
                     }
+                  } else {
+                   console.log(data);
+                  }
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -280,6 +302,7 @@ function openBox(body) {
                     console.log(`${JSON.stringify(err)}`)
                     console.log(`${$.name} superboxOrdinaryLottery API请求失败，请检查网路重试`)
                 } else {
+                   if (safeGet(data)) {
                     data = JSON.parse(data);
                     //console.log(JSON.stringify(data));
                     if (data.success === true && data.code === 0 && data.data.rewardType === 2) {
@@ -289,6 +312,9 @@ function openBox(body) {
                     } else {
                         console.log(`失败：${JSON.stringify(data)}\n\n`)
                     }
+                  } else {
+                   console.log(data);
+                  }
                 }
             } catch (e) {
                 $.logErr(e, resp);
@@ -311,9 +337,13 @@ function getToken(timeout = 0) {
             }
             $.post(url, async (err, resp, data) => {
                 try {
+                   if (safeGet(data)) {
                     data = JSON.parse(data);
                     joyToken = data.joyytoken;
                     console.log(`joyToken = ${data.joyytoken}`)
+                  } else {
+                   console.log(data);
+                  }
                 } catch (e) {
                     $.logErr(e, resp);
                 } finally {
@@ -352,6 +382,18 @@ function taskPostUrl(functionId, body = {}) {
             'Referer': 'https://pro.m.jd.com/mall/active/j8U2SMhmw3aKgfWwYQfoRR4idTT/index.html?',
         }
     }
+}
+
+function safeGet(data) {
+  try {
+    if (typeof JSON.parse(data) == "object") {
+      return true;
+    }
+  } catch (e) {
+    console.log(e);
+    console.log(`京东服务器访问数据为空，请检查自身设备网络情况`);
+    return false;
+  }
 }
 
 function jsonParse(str) {
