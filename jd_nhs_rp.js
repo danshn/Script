@@ -131,9 +131,9 @@ let nowTime = new Date().getTime() + new Date().getTimezoneOffset()*60*1000 + 8*
   }
   if(Object.getOwnPropertyNames($.shareCodeArr).length > 0 && $.shareCodeArr["updateTime"] != pinUpdateTime) $.setdata($.shareCodeArr,'gua_JDnhjRed')
   if(message){
-    $.msg($.name, ``, `${message}\nhttps://u.jd.com/SCLyQi4\n\n跳转到app 可查看助力情况`);
+    $.msg($.name, ``, `${message}\nhttps://u.jd.com/\n\n跳转到app 可查看助力情况`);
     if ($.isNode()){
-      // await notify.sendNotify(`${$.name}`, `${message}\n\nhttps://u.jd.com/SCLyQi4\n跳转到app 可查看助力情况`);
+      // await notify.sendNotify(`${$.name}`, `${message}\n\nhttps://u.jd.com/\n跳转到app 可查看助力情况`);
     }
   }
 })()
@@ -175,7 +175,7 @@ async function run(type = 0){
               if($.shareCode) console.log(`助力[${i}]`)
               let res = await getCoupons($.shareCode,1)
               if(res.indexOf('上限') > -1){
-                await $.wait(parseInt(Math.random() * 5000 + 3000, 10))
+                await $.wait(500)
                 await getCoupons('',1)
               }
             }
@@ -184,7 +184,7 @@ async function run(type = 0){
         }else{
           let res = await getCoupons('',1)
           if(res.indexOf('上限') > -1){
-            await $.wait(parseInt(Math.random() * 5000 + 3000, 10))
+            await $.wait(500)
             await getCoupons('',1)
           }
         }
@@ -200,7 +200,7 @@ async function run(type = 0){
       }
       s++
       if($.flag == 1){
-        await $.wait(parseInt(Math.random() * 5000 + 3000, 10))
+        await $.wait(500)
       }
     }while ($.flag == 1 && s < 5)
     if($.endFlag) return
@@ -420,7 +420,7 @@ function getUrl1() {
 
 function getUrl() {
   return new Promise(resolve => {
-    if($.again == true) rebateCode = 'S'+'C'+'L'+'y'+'Q'+'i'+'4'
+    // if($.again == true) rebateCode = 'S'+'C'+'L'+'y'+'Q'+'i'+'4'
     const options = {
       url: `https://u.jd.com/${rebateCode}${$.shareCode && "?s="+$.shareCode || ""}`,
       followRedirect:false,
