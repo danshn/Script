@@ -1,2 +1,0 @@
-{'shopid': '104783', 'venderId': '106568', 'activityId': '10698871', 'signbody': 'sign=5d7929540927f18cbbe8f1501f46da4b&st=1642002308236&sv=101', 'openudid': 'DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK=='}
-{'shopid': '10140773', 'venderId': '10274627', 'activityId': '10713437', 'signbody': 'sign=1528c0aef3d9f0aa2691e5638d86ab0e&st=1642002345092&sv=110', 'openudid': 'DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK=='}
