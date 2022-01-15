@@ -81,11 +81,13 @@ async function jdsign() {
     await $.wait(1000)
     await getInfo("https://prodev.m.jd.com/mall/active/4Vh5ybVr98nfJgros5GwvXbmTUpg/index.html");//小程序签到
     await $.wait(1000)
-    await getInfo("https://prodev.m.jd.com/mall/active/whyxjHX23eNgT6Xvej19JnamfEH/index.html");//签到1.14结束
-    await $.wait(1000)
+  //  await getInfo("https://prodev.m.jd.com/mall/active/whyxjHX23eNgT6Xvej19JnamfEH/index.html");//签到1.14结束
+  //  await $.wait(1000)
     await getInfo("https://pro.m.jd.com/mall/active/3joSPpr7RgdHMbcuqoRQ8HbcPo9U/index.html");//生活特权签到
     await $.wait(1000)
-    await getInfo("https://prodev.m.jd.com/mall/active/297D8EdMPuCqPDERRYdN2D1e39oe/index.html");//签到领豪礼
+  //  await getInfo("https://prodev.m.jd.com/mall/active/297D8EdMPuCqPDERRYdN2D1e39oe/index.html");//签到领豪礼
+  //  await $.wait(1000)
+  //  await getInfo("https://prodev.m.jd.com/mall/active/dHKkhs2AYLCeCH3tEaHRtC1TnvH/index.html");//签到共建
   } catch (e) {
     $.logErr(e)
   }
