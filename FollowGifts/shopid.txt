@@ -1,3 +1,5 @@
-{'shopid': '1000351891', 'venderId': '1000351891', 'activityId': '10717691', 'signbody': 'sign=1d799e65272012b2aec43275a9b11fc3&st=1642325193417&sv=120', 'openudid': 'DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK=='}
-{'shopid': '1000012001', 'venderId': '1000012001', 'activityId': '10701232', 'signbody': 'sign=2dac3a11f236a62bef095b0e8c8fabed&st=1642325211540&sv=101', 'openudid': 'DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK=='}
-{'shopid': '67056', 'venderId': '70860', 'activityId': '10716616', 'signbody': 'sign=05b93f71058da36f4051a8c52d52efac&st=1642325236734&sv=100', 'openudid': 'DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK=='}
+{'shopid': '190715', 'venderId': '199395', 'activityId': '10718651', 'signbody': 'sign=6bb0ae93ee5310c62644d9f03122b71b&st=1642326784846&sv=101', 'openudid': 'ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK=='}
+{'shopid': '1000012001', 'venderId': '1000012001', 'activityId': '10701232', 'signbody': 'sign=758e108f64630c9e47ef60a3feff48c5&st=1642326769668&sv=122', 'openudid': 'ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK=='}
+{'shopid': '168832', 'venderId': '168329', 'activityId': '10717060', 'signbody': 'sign=28f0d767c3b44eb9f0f8dab52b3ea980&st=1642326776564&sv=122', 'openudid': 'ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK=='}
+{'shopid': '1000351891', 'venderId': '1000351891', 'activityId': '10717691', 'signbody': 'sign=ab4b397bb4f8222e59ff73371bbfebe7&st=1642326755928&sv=120', 'openudid': 'ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK=='}
+{'shopid': '67056', 'venderId': '70860', 'activityId': '10716616', 'signbody': 'sign=da2aab4d480b5ebbf4cc7975650ebce1&st=1642326793201&sv=102', 'openudid': 'ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK=='}
