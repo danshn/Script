@@ -1,9 +1,9 @@
 /*
-大牌联合 宠爱有礼
+会员联合盛典  年货好物集结
 
-https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/5063373?activityId=dzlhkklblzms20220108&shareUuid=d0223a4811ec4b699584b688b71a90bd
+https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/5063373?activityId=dzlhkklblsifkpeq0118&shareUuid=ee985d0cb090486b92549b0bf134dd81
 */
-const $ = new Env("大牌联合 宠爱有礼");
+const $ = new Env("会员联合盛典  年货好物集结");
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let cookiesArr = [], cookie = '', message = '';
@@ -24,12 +24,13 @@ if ($.isNode()) {
     cookiesArr = cookiesArr.filter(item => !!item);
 }
 !(async () => {
+    $.getAuthorCodeListerr = false
     if (!cookiesArr[0]) {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
         return;
     }
     authorCodeList = await getAuthorCodeList('https://gitee.com/fatelight/code/raw/master/lzdz19.json')
-    if(authorCodeList === '404: Not Found'){
+    if($.getAuthorCodeListerr === false){
         authorCodeList = [
             'ee985d0cb090486b92549b0bf134dd81',
         ]
@@ -331,9 +332,11 @@ function getAuthorCodeList(url) {
         $.get(options, async (err, resp, data) => {
             try {
                 if (err) {
-                    $.log(err)
+                    // $.log(err)
+                    $.getAuthorCodeListerr = false
                 } else {
                 if (data) data = JSON.parse(data)
+                    $.getAuthorCodeListerr = true
                 }
             } catch (e) {
                 $.logErr(e, resp)
