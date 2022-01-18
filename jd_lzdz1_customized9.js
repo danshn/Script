@@ -35,7 +35,6 @@ if ($.isNode()) {
             'ee985d0cb090486b92549b0bf134dd81',
         ]
     }
-    console.log(authorCodeList)
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i]
