@@ -1,6 +1,6 @@
 /*
 会员联合盛典  年货好物集结
-
+TG https://t.me/duckjobs
 https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/5063373?activityId=dzlhkklblsifkpeq0118&shareUuid=ee985d0cb090486b92549b0bf134dd81
 */
 const $ = new Env("会员联合盛典  年货好物集结");
