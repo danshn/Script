@@ -117,8 +117,8 @@ async function rush() {
                     await task('saveCandidate', `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&signUuid=${encodeURIComponent($.authorCode)}&pinImg=${encodeURIComponent(`https://img10.360buyimg.com/imgzone/jfs/t1/21383/2/6633/3879/5c5138d8E0967ccf2/91da57c5e2166005.jpg`)}`)
                     if (!$.activityContent.openCard) {
                         await $.wait(2000)
-                        await getShopOpenCardInfo({ "venderId": "1000014803", "channel": 401 }, 1000014803)
-                        await bindWithVender({ "venderId": "1000014803", "shopId": "1000014803", "bindByVerifyCodeFlag": 1, "registerExtend": {}, "writeChildFlag": 0, "activityId": 3282318, "channel": 401 }, 100000000000085)
+                        await getShopOpenCardInfo({ "venderId": "1000001879", "channel": 401 }, 1000001879)
+                        await bindWithVender({ "venderId": "1000001879", "shopId": "1000001879", "bindByVerifyCodeFlag": 1, "registerExtend": {}, "writeChildFlag": 0, "activityId": 3282318, "channel": 401 }, 100000000000085)
                     }
                     await task('activityContent', `activityId=${$.activityId}&pin=${encodeURIComponent($.secretPin)}&signUuid=${encodeURIComponent($.authorCode)}`, 0, 1)
                     await $.wait(2000)
