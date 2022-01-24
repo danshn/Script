@@ -9,6 +9,8 @@ ck1 最好自己先单独跑一次!!!
 
 然后重新跑给ck1助力
 
+无法加入队伍 - 需要新会员
+
 手动瓜分
 入口:https://lzkjdz-isv.isvjcloud.com/pool/captain/725732?activityId=9a1508ec3d2549dfa8187dcbfd590a34
 
@@ -43,6 +45,9 @@ if (process.env.NO_RUSH && process.env.NO_RUSH != "") {
         $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/bean/signIndex.action', { "open-url": "https://bean.m.jd.com/bean/signIndex.action" });
         return;
     }
+    console.log("有时间多看看脚本说明!!!")
+    console.log("有时间多看看脚本说明!!!")
+    console.log("有时间多看看脚本说明!!!")
     for (let i = 0; i < cookiesArr.length; i++) {
         if (cookiesArr[i]) {
             cookie = cookiesArr[i]
