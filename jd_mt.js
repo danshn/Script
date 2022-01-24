@@ -1,4 +1,6 @@
 /*
+多看说明,不看别问为什么没有
+
 ck1 最好自己先单独跑一次!!!
 ck1 最好自己先单独跑一次!!!
 ck1 最好自己先单独跑一次!!!
@@ -6,6 +8,9 @@ ck1 最好自己先单独跑一次!!!
 ck1 最好自己先单独跑一次!!!
 
 然后重新跑给ck1助力
+
+手动瓜分
+入口:https://lzkjdz-isv.isvjcloud.com/pool/captain/725732?activityId=9a1508ec3d2549dfa8187dcbfd590a34
 
 TG https://t.me/duckjobs
 
