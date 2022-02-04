@@ -48,13 +48,13 @@ if ($.isNode()) {
             $.UUID = getUUID('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
             authorCodeList = [
                 // 'fuMB6t0LHdtq7Dc8pm+TwF4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
-                'nYXy96GqoNLmoZYWMzThH14tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
-                'NIIGH1E3ihp+jukMM7UfkV4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
-                'gHLldBJLPdovONAzAjPTUMjNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD',
-                // 'Us3Ez79jWo+EjxEstFXeAsjNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD',
-                // 'IoA+lpcepGaPbJsVOkOB0l4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
-                // 'GSu0LLV/a/kRzFGT+kz0Vl4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
-                // 'oblqy4hFu/vZtG/iPdHGk8jNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD'
+                // 'nYXy96GqoNLmoZYWMzThH14tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
+                // 'NIIGH1E3ihp+jukMM7UfkV4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
+                // 'gHLldBJLPdovONAzAjPTUMjNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD',
+                'Us3Ez79jWo+EjxEstFXeAsjNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD',
+                'IoA+lpcepGaPbJsVOkOB0l4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
+                'GSu0LLV/a/kRzFGT+kz0Vl4tLNYA4seuA67MOIYQxEk3Vl9+AVo4NF+tgyeIc6A6kdK3rLBQpEQH9V4tdrrh0w==',
+                'oblqy4hFu/vZtG/iPdHGk8jNhNaYFy2HteErE6izlhTf9nrGY7gBkCdGU4C6z/xD'
             ]
             $.appkey = "51B59BB805903DA4CE513D29EC448375"
             $.userId = "10299171"
