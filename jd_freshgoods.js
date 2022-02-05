@@ -1,7 +1,7 @@
 /*
 活动地址：https://u.jd.com/PLeoIEU
 by：搞鸡玩家
-cron 0-59/8 1,2,3 * * *
+cron 0-59/8 1,2,3 5-7 2 *
 */
 const $ = new Env('春节游戏互动');
 const notify = $.isNode() ? require('./sendNotify') : '';
