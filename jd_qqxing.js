@@ -1,9 +1,7 @@
 /*
 星系牧场
-活动入口：QQ星儿童牛奶京东自营旗舰店->星系牧场
+活动入口：QQ星儿童牛奶京东自营旗舰店->品牌会员->星系牧场
 每次都要手动打开才能跑 不知道啥问题
-号1默认给我助力,后续接龙 2给1 3给2
- 19.0复制整段话 http:/J7ldD7ToqMhRJI星系牧场养牛牛，可获得DHA专属奶！%VAjYb8me2b!→去猄倲←
 [task_local]
 #星系牧场
 1 0-23/2 * * * jd_qqxing.js
@@ -19,6 +17,13 @@ Exchange = true;
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [],
     cookie = '';
+function oc(fn, defaultVal) {//optioanl chaining
+  try {
+    return fn()
+  } catch (e) {
+    return undefined
+  }
+}
 if ($.isNode()) {
     Object.keys(jdCookieNode).forEach((item) => {
         cookiesArr.push(jdCookieNode[item])
@@ -30,7 +35,7 @@ if ($.isNode()) {
 
 const JD_API_HOST = `https://api.m.jd.com/client.action`;
 message = ""
-$.shareuuid = ["d08a9f75670b488f91da192ae3a4f673", "d08a9f75670b488f91da192ae3a4f673"][Math.floor((Math.random() * 2))];
+$.shareuuid = ""
     !(async () => {
         if (!cookiesArr[0]) {
             $.msg($.name, '【提示】请先获取cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {
@@ -79,43 +84,42 @@ $.shareuuid = ["d08a9f75670b488f91da192ae3a4f673", "d08a9f75670b488f91da192ae3a4
                         if (task.taskid == "interact") {
                             for (l = 0; l < 20 - task.curNum; l++) {
                                 await dotask(task.taskid, task.params)
-                                await $.wait(18000)
+                                await $.wait(10000)
                             }
                         } else if (task.taskid == "scansku") {
                             await getproduct()
                             await writePersonInfo($.vid)
                             await dotask(task.taskid, $.pparam)
-                        } else {
+                        } else if (task.taskid !== "add2cart") {
                             await dotask(task.taskid, task.params)
-                            await $.wait(18000)
+                            await $.wait(10000)
                         }
                     }
                     await getinfo()
                     for (k = 0; k < $.drawchance; k++) {
                         await draw()
                     }
-                    let exchanges =Math.floor($.foodNum/10000)
-                    console.log(`可兑换 ${exchanges} 次 100京🐶`)
-                    for(q = 0;q<exchanges && Exchange;q++){
-                    await exchange(16)   //16是100豆，14是50豆，13是20豆
+                    let exchanges = Math.floor($.foodNum / 1000)
+                    console.log(`可兑换 ${exchanges} 次 20京🐶`)
+                    if (!Exchange) { console.log("你 默认 不兑换东西,请自行进去活动兑换") } else {
+                        for (q = 0; q < exchanges && Exchange; q++) {
+                            await exchange(13)
+                        }
                     }
                     await getinfo()
-                    if(!Exchange){console.log("你 默认 不兑换东西,请自行进去活动兑换")}
                     message += `【京东账号${$.index}】${$.nickName || $.UserName}\n${$.cow} 兑换京🐶 ${$.exchange}  ${$.drawresult}\n`
-                    console.log("休息休息~") 
-                    await $.wait(80*1000) 
                 } else {
                   $.msg($.name, "", "跑不起来了~请自己进去一次牧场")
                 }
             }
         }
-        if (message.length != 0) {
-            if ($.isNode()) {
-            // await notify.sendNotify("星系牧场", `${message}\n牧场入口：QQ星儿童牛奶京东自营旗舰店->星系牧场\n\n吹水群：https://t.me/wenmouxx`);
-            }  else {
-                $.msg($.name, "", '星系牧场' + message)
-            }
-        }
+//         if (message.length != 0) {
+//         if ($.isNode()) {
+//            await notify.sendNotify("星系牧场", `${message}\n牧场入口：QQ星儿童牛奶京东自营旗舰店->星系牧场\n\n吹水群：https://t.me/wenmouxx`);
+//    }  else {
+//             $.msg($.name, "", '星系牧场' + message)
+//         }
+//            }
     })()
     .catch((e) => $.logErr(e))
     .finally(() => $.done())
@@ -124,7 +128,7 @@ $.shareuuid = ["d08a9f75670b488f91da192ae3a4f673", "d08a9f75670b488f91da192ae3a4
 // 更新cookie 
 
 function updateCookie (resp) {
-    if (!resp?.headers['set-cookie']){
+    if (!oc(() => resp.headers['set-cookie'])){
         return
     }
     let obj = {}
